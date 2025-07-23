@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import openpyxl
 
 st.title("Subtitute Teacher Timetable Generator")
 
