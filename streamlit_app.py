@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title("Google Sheets Timetable Extractor")
+st.title("Subtitute Teacher Timetable Generator")
 
 # Utility functions
 def transform_gsheet_url(url: str) -> str:
