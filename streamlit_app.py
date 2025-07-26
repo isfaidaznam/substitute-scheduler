@@ -45,7 +45,7 @@ def rename_duplicate_columns(df: pd.DataFrame) -> pd.DataFrame:
 # Main form
 with st.form("gsheet_form"):
     gsheet_url = st.text_input("Paste your Google Sheet URL:")
-    submitted = st.form_submit_button("Load and Process")
+    submitted = st.form_submit_button("Submit Google Sheet URL")
 
 if submitted and gsheet_url:
     try:
