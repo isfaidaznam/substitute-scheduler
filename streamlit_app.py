@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 import openpyxl
 
+if 'sheet_to_load' not in st.session_state:
+    st.session_state.sheet_to_load = None
+
 st.title("Subtitute Teacher Timetable Generator")
 
 # Utility functions
