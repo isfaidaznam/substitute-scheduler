@@ -56,12 +56,13 @@ if submitted and gsheet_url:
         xls = pd.ExcelFile(export_url, engine='openpyxl')
         sheets = xls.sheet_names
 
-        submitted_sheet = None
-        sheet_to_load = sheets[0]
         if len(sheets) > 1:
             with st.form("sheet_form"):
                 sheet_to_load = st.selectbox("Multiple sheets found. Select one to load:", sheets)
                 submitted_sheet = st.form_submit_button("Submit Sheet")
+        else:
+            sheet_to_load = sheets[0]
+        st.session_state.sheet_to_load = sheet_to_load
 
         if sheet_to_load and submitted_sheet:
             time_table_data = pd.read_excel(export_url, sheet_name=sheet_to_load, engine='openpyxl')
