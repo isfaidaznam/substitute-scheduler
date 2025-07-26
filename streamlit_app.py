@@ -54,6 +54,7 @@ def rename_duplicate_columns(df: pd.DataFrame) -> pd.DataFrame:
 # Main form
 with st.form("gsheet_form"):
     gsheet_url = st.text_input("Paste your Google Sheet URL:")
+    st.session_state.gsheet_url = gsheet_url
     submitted_gsheet_url = st.form_submit_button("Submit Google Sheet URL")
     st.session_state.submitted_gsheet_url = submitted_gsheet_url
 
