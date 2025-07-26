@@ -57,6 +57,7 @@ if submitted and gsheet_url:
         sheet_to_load = sheets[0]
         if len(sheets) > 1:
             with st.form("sheet_form"):
+                st.write("Multiple sheets found. Select one to load")
                 sheet_to_load = st.selectbox("Multiple sheets found. Select one to load:", sheets)
                 submitted_sheet = st.form_submit_button("Submit Sheet")
 
