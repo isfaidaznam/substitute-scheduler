@@ -6,6 +6,9 @@ import openpyxl
 if 'sheet_to_load' not in st.session_state:
     st.session_state.sheet_to_load = None
 
+if 'submitted_gsheet_url' not in st.session_state:
+    st.session_state.submitted_gsheet_url = None
+
 st.title("Subtitute Teacher Timetable Generator")
 
 # Utility functions
