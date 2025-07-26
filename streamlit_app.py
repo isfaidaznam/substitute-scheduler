@@ -56,21 +56,24 @@ with st.form("gsheet_form"):
 
 if submitted_gsheet_url and gsheet_url:
     try:
-        export_url = transform_gsheet_url(gsheet_url)
-        xls = pd.ExcelFile(export_url, engine='openpyxl')
-        sheets = xls.sheet_names
-
-        if len(sheets) > 1:
-            with st.form("sheet_form"):
-                sheet_to_load = st.selectbox("Multiple sheets found. Select one to load:", sheets)
-                submitted_sheet = st.form_submit_button("Submit Sheet")
-
-            if submitted_sheet and sheet_to_load:
-                st.session_state.sheet_to_load = sheet_to_load
-
+        if st.session_state.sheet_to_load:
+            sheet_to_load = st.session_state.sheet_to_load
         else:
-            sheet_to_load = sheets[0]
-            st.session_state.sheet_to_load = sheet_to_load
+            export_url = transform_gsheet_url(gsheet_url)
+            xls = pd.ExcelFile(export_url, engine='openpyxl')
+            sheets = xls.sheet_names
+
+            if len(sheets) > 1:
+                with st.form("sheet_form"):
+                    sheet_to_load = st.selectbox("Multiple sheets found. Select one to load:", sheets)
+                    submitted_sheet = st.form_submit_button("Submit Sheet")
+
+                if submitted_sheet and sheet_to_load:
+                    st.session_state.sheet_to_load = sheet_to_load
+
+            else:
+                sheet_to_load = sheets[0]
+                st.session_state.sheet_to_load = sheet_to_load
 
         if sheet_to_load:
             time_table_data = pd.read_excel(export_url, sheet_name=sheet_to_load, engine='openpyxl')
