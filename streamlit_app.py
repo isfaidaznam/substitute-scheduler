@@ -77,6 +77,7 @@ if submitted_gsheet_url and gsheet_url:
 
                 if submitted_sheet and sheet_to_load:
                     st.session_state.sheet_to_load = sheet_to_load
+                    st.session_state.submitted_sheet = submitted_sheet
 
             else:
                 sheet_to_load = sheets[0]
