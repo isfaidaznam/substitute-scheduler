@@ -51,9 +51,10 @@ def rename_duplicate_columns(df: pd.DataFrame) -> pd.DataFrame:
 # Main form
 with st.form("gsheet_form"):
     gsheet_url = st.text_input("Paste your Google Sheet URL:")
-    submitted = st.form_submit_button("Submit Google Sheet URL")
+    submitted_gsheet_url = st.form_submit_button("Submit Google Sheet URL")
+    st.session_state.submitted_gsheet_url = submitted_gsheet_url
 
-if submitted and gsheet_url:
+if submitted_gsheet_url and gsheet_url:
     try:
         export_url = transform_gsheet_url(gsheet_url)
         xls = pd.ExcelFile(export_url, engine='openpyxl')
