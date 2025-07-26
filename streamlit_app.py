@@ -9,6 +9,9 @@ if 'sheet_to_load' not in st.session_state:
 if 'submitted_gsheet_url' not in st.session_state:
     st.session_state.submitted_gsheet_url = None
 
+if 'gsheet_url' not in st.session_state:
+    st.session_state.gsheet_url = None
+
 st.title("Subtitute Teacher Timetable Generator")
 
 # Utility functions
