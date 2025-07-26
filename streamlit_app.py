@@ -64,7 +64,7 @@ if submitted and gsheet_url:
             sheet_to_load = sheets[0]
         st.session_state.sheet_to_load = sheet_to_load
 
-        if sheet_to_load and submitted_sheet:
+        if sheet_to_load:
             time_table_data = pd.read_excel(export_url, sheet_name=sheet_to_load, engine='openpyxl')
 
             # Clean data
