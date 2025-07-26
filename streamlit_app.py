@@ -53,6 +53,7 @@ if submitted and gsheet_url:
         xls = pd.ExcelFile(export_url, engine='openpyxl')
         sheets = xls.sheet_names
 
+        submitted_sheet = None
         sheet_to_load = sheets[0]
         if len(sheets) > 1:
             sheet_to_load = st.selectbox("Multiple sheets found. Select one to load:", sheets)
